@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block style %}
+h1 {
+  text-align: center;
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Tooltip container */
+.tooltip {
+  text-align: center;
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: red;
+  color: #fff;
+  border-radius: 5px;
+  margin: 40px 0 0 -300px;
+  padding: 5px;
+
+  /* Position the tooltip text */
+  z-index: 1;
+  position: absolute;
+
+  /* Fade in tooltip text on hover */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when hovering over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+h2 {
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      color: red;
+    {% endif %}
+  {% endwith %}
+}
+{% block substyle %} {% endblock %}
+{% endblock %}
