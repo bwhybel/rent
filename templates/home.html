@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block style %}
+.link {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.tenant-button:hover {
+  background-color: #3e8e41;
+}
+
+.landlord-button:hover {
+  background-color: #ff8c00;
+}
+
+.tenant-button {
+  background-color: #4CAF50;
+}
+
+.landlord-button {
+  background-color: #ff6600;
+}
+{% endblock %}
+{% block content %}
+<div>
+  <a class="tenant-button link" href={{ url_for("login", user_type="tenant") }}>Tenants</a>
+  <a class="landlord-button link" href={{ url_for("login", user_type="landlord") }}>Landlords</button></a>
+</div>
+{% endblock %}
