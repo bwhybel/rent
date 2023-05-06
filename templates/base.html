@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %} {% endblock %}</title>
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: monospace;
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+
+    .container {
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    {% block style %}{% endblock %}
+  </style>
+</head>
+<body>
+  {% block content %}{% endblock %}
+  <script>
+    {% block js %}{% endblock %}
+  </script>
+</body>
+</html>
