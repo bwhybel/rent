@@ -1,0 +1,50 @@
+{% extends 'form_base.html' %}
+{% block title %}Log In{% endblock %}
+{% block substyle %}
+.signup-button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  background-color: #0077be;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 18px;
+}
+
+.signup-button:hover {
+  background-color: #999;
+}
+
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>bwhybel rent</h1>
+  <h2 class="tooltip">{{ user_type }} log in
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <span class="tooltiptext">{{message}}</span>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </h2>
+
+  <form action={{ url_for("login", user_type=user_type) }} method="POST">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input style="display:none" type="text" id="user_type" name="user_type" value={{ user_type }}>
+
+    <input type="submit" value="Login">
+  </form>
+  <a href={{ url_for("signup", user_type=user_type) }} class="signup-button">Sign Up</a>
+</div>
+{% endblock %}
